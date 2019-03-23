@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         SearchView searchView = findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(this);
 
-        final Retrofit retrofit = RetrofitSingleton.getInstance();
-        StateService stateService = retrofit.create(StateService.class);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
+
+        final Retrofit retrofit = RetrofitSingleton.getInstance();
+        StateService stateService = retrofit.create(StateService.class);
 
         disposable.add(
                 stateService.getStateResponse()
@@ -70,7 +70,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         );
     }
 
-    //use either onPause or onStop to end/stop/clear the retrofit call(disposable), so you don't leak info or waste memory
+    //use either onPause or onStop to end/stop/clear the retrofit call that i saved
+    // inside a disposable, so you don't leak info or waste memory
     @Override
     protected void onPause() {
         super.onPause();
@@ -99,28 +100,3 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return false;
     }
 }
-
-
-//        RetrofitSingleton.getInstance()
-//                .create(StateService.class)
-//                .getStateResponse()
-//                .enqueue(new Callback<StateResponse>() {
-//                    @Override
-//                    public void onResponse(Call<StateResponse> call, Response<StateResponse> response) {
-//                        Log.d("TAG", "onResponse" + response.body().getAR().getName());
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<StateResponse> call, Throwable t) {
-//                        Log.d("TAG", "onFailure" + t.getMessage());
-//                    }
-//                });
-
-//                        state -> {
-//                            stateList = new ArrayList<>();
-//
-//                            Log.d("TAG", "onResponse" + state.getAL().getName());
-////                            stateList = new ArrayList<>();
-////                            stateList.addAll(state.getAK().getName().)
-//                        },
-//                        throwable -> Log.d("TAG", "onFailure" + throwable)

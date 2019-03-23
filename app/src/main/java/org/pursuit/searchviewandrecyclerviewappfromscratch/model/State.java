@@ -1,18 +1,18 @@
 package org.pursuit.searchviewandrecyclerviewappfromscratch.model;
 
-//use below for serializable
+//use below annotation for serializable
+
 import com.google.gson.annotations.SerializedName;
 
 public class State {
 
     private String name;
     private String capital;
-
-    @SerializedName("long")  //use this when you want to change the word in the pojo
+    //use below when you want to change the word in the pojo
+    @SerializedName("long")
     private String longitude;
-
     @SerializedName("lat")
-    private  String latitude;
+    private String latitude;
 
     public String getName() {
         return name;

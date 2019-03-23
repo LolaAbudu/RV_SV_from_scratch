@@ -1,7 +1,6 @@
 package org.pursuit.searchviewandrecyclerviewappfromscratch.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class StateResponse {
@@ -56,7 +55,7 @@ public class StateResponse {
     private State WI;
     private State WY;
 
-    public List<State> getStateList(){
+    public List<State> getStateList() {
         List<State> stateList = new ArrayList<>();
 
 //or add them all like below
@@ -114,7 +113,7 @@ public class StateResponse {
         stateList.add(WY);
 
         return stateList;
-}
+    }
 
     public State getAL() {
         return AL;

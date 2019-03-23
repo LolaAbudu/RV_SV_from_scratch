@@ -9,12 +9,10 @@ import org.pursuit.searchviewandrecyclerviewappfromscratch.R;
 import org.pursuit.searchviewandrecyclerviewappfromscratch.model.State;
 
 public class StateViewHolder extends RecyclerView.ViewHolder {
-
-    TextView stateTextView;
+    private TextView stateTextView;
 
     public StateViewHolder(@NonNull View itemView) {
         super(itemView);
-
         stateTextView = itemView.findViewById(R.id.state_text_view);
     }
 
